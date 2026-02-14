@@ -1,4 +1,4 @@
-const https = require("http");
+const https = require("http");                             
     const age = 29;
 
 https.createServer((req,resp)=>{
@@ -20,3 +20,11 @@ https.createServer((req,resp)=>{
     resp.end("hello");
     process.exit();
 }).listen(30);
+https.createServer((req,resp)=>{
+    resp.setHeader("Content-text","text/html");//this setHeader is gives the set all text and html
+
+    resp.write("<h1>hello this is the resp string</h1>");
+    resp.write("<h2>this the h2 string</h2>");
+    resp.end("hello");
+}).listen(3000);
+
