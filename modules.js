@@ -12,3 +12,11 @@ console.log(os.cpus());
 console.log("abc");
 console.log(process.cwd());//path: G:\node js
 console.log(process.pid);// 7240
+
+const {log} = require('console');
+
+log("console log");//console log
+
+
+
+
