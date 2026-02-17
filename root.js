@@ -6,7 +6,7 @@ resp.write(`
     <form action="/submit" method ="post">
     <input type="text" name="username" placeholder="Enter your Name" />
     <input type ="text" name ="email" placeholder ="enter your email" />
-    <input type ="submit" value="submit" />
+    <button type="submit">Submit</button>
     `)
 resp.end();
 }
