@@ -1,4 +1,4 @@
-function rootcall(req,resp){
+function root(req,resp){
 
 console.log("this is root program is function");
 resp.write("this is root program is function");
@@ -10,5 +10,5 @@ resp.write(`
     `)
 resp.end();
 }
-module.exports = rootcall;
+module.exports = root;
 
