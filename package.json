@@ -2,5 +2,28 @@
   "dependencies": {
     "colors": "^1.4.0",
     "nodemon": "^3.1.11"
+  },
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000n\u0000o\u0000d\u0000e\u0000.\u0000j\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gopalbhople1208/learnNode.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Gopalbhople1208/learnNode.js/issues"
+  },
+  "homepage": "https://github.com/Gopalbhople1208/learnNode.js#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }

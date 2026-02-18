@@ -1,3 +1,4 @@
+const querystring = require("querystring");
 function rootsubmit(req,resp){
 
 let dataGiven =[];
@@ -5,9 +6,9 @@ let dataGiven =[];
         dataGiven.push(chunk);
     })
     req.on("end",()=>{
-        let pareData = buffer.concat(dataGiven).toString();
+        let pareData = Buffer.concat(dataGiven).toString();
         let rawData = querystring.parse(pareData);
-        let userGo = "this is user name"+rawData.username+"and this is email"+rawData.email;
+        let userGo = "this is user name: "+rawData.username+" and this is email: "+rawData.email;
         console.log(userGo);
     })
 resp.write(`
