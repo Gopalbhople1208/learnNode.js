@@ -16,7 +16,9 @@ const fs = require("fs");
 //const data1 =fs.appendFileSync("text/curd.txt","\nthis checking append file data use of async methode");
  
 
-//the add the data for direct form the console
+//the created file add the data for direct form the console(npx nodemon curd.js write consoleinput "this text is add the file")
+
+//console input method is use the delete data
 console.log(process.argv[2]);
 const operation = process.argv[2];
 if(operation =='write'){
@@ -26,4 +28,22 @@ if(operation =='write'){
 
     fs.writeFileSync(fullname,data);
     
+}else if(operation =="read"){ //(npx nodemon curd.js read consoleinput "curd")
+    const name = process.argv[3];
+    const fullname = "text/"+name+".txt";
+    let data = fs.readFileSync(fullname,'utf8');
+    console.log(data);
+} else if(operation == "update"){
+    const name = process.argv[3];
+    const data = process.argv[4];
+    const fullname = "text/"+name+".txt";
+    const olddata = fs.appendFileSync(fullname,data);//update the data (add the data ib this file)
+    console.log(olddata);
+}else if(operation == "delete"){   //delete the file (ex., is delete the file curd.txt )
+    const name =process.argv[3];
+    const fullname = "text/"+name+".txt";
+    const newname = fs.unlinkSync(fullname);
+    console.log(newname);
+}else{
+    console.log("invalid operation");
 }
