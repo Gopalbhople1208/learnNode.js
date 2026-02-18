@@ -1,12 +1,15 @@
-const http = require("http");
 
-http.createServer((req,resp)=>{
-fs.writeFileSync("text/curd.txt","this is curd operation");
+//created the text file (sync method)
+const fs = require("fs");
+//fs.writeFileSync("text/curd1.txt","this is curd operation");
 
-resp.writeHead(200,{"content-type":"text/html"});
-console.log("program is running successfully");
-    resp.write("this is curd operation");
-    resp.end();
-}).listen(2020,()=>{
-    console.log("server is running on http://localhost:2020");
-});
+//remove the file(sync method and async method)
+//fs.unlinkSync("text/curd1.txt");
+
+
+//read the data insaid the file (sync method and async method)
+let data = fs.readFileSync("text/curd.txt","utf-8");
+console.log(data);
+
+//append the data in the file (sync method and async method)
+const data1 =fs.appendFileSync("text/curd.txt","\nthis checking append file data use of async methode");
