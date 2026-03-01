@@ -2,6 +2,8 @@
   "dependencies": {
     "colors": "^1.4.0",
     "express": "^5.2.1",
+    "mongodb": "^7.1.0",
+    "mongoose": "^9.2.3",
     "nodemon": "^3.1.11"
   },
   "name": "node-js",
