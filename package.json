@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "colors": "^1.4.0",
+    "express": "^5.2.1",
     "nodemon": "^3.1.11"
   },
   "name": "node-js",
@@ -18,7 +19,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Gopalbhople1208/learnNode.js/issues"
   },
