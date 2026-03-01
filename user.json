@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "name":"Fuse",
+        "age":23,
+        "email":"fuse@gmail.com"
+
+    },
+     {
+        "id":2,
+        "name":"Gopal",
+        "age":21,
+        "email":"gopal@gmail.com"
+
+    },
+     {
+        "id":3,
+        "name":"hope",
+        "age":20,
+        "email":"hope@gmail.com"
+
+    },
+     {
+        "id":4,
+        "name":"join",
+        "age":23,
+        "email":"join@gmail.com"
+
+    }
+]
