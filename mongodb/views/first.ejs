@@ -9,5 +9,21 @@
     <h1>
         This data is Current in Ejs File this data motion
     </h1>
+    <Table border ="1"space ="3">
+    <tr>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Email</td>
+    </tr>
+<% students.forEach(student=>{ %>
+ <tr>
+        <td><%= student.name%></td>
+        <td><%= student.age%></td>
+        <td><%= student.email%></td>
+    </tr>
+<%})%>
+     
+     
+    </Table>
 </body>
 </html>
