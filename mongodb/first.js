@@ -10,15 +10,26 @@ const client = new MongoClient(url);
 const app = express();
 
 app.set("view engine", "ejs");
-app.get('/',async (req,resp)=>{
-     await client.connect();
-    const db = client.db(dbName);
-    const collection = db.collection('students');
+client.connect().then((connection)=>{
+    const db= connection.db(dbName);
 
-    const result = await collection.find().toArray();
-    console.log(result);
-    resp.render("first",{students:result});
+    app.get("/api", async (req,resp)=>{
+        const collection = db.collection("students")
+        const students = await collection.find().toArray();
+        resp.send(students);
+    })
+      app.get('/ui', async (req,resp)=>{
+        const collection = db.collection("students")
+        const students = await collection.find().toArray();
+        resp.render('first',{students:students});
+    })
+    app.get('/', async (req,resp)=>{
+        const collection = db.collection("students")
+        const students = await collection.find().toArray();
+        resp.render('first',{students:students});
+    })
 })
+
 app.listen(2020,()=>{
     console.log("This run correctly in http://localhost:2020");
 })
