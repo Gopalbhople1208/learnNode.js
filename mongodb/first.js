@@ -9,7 +9,7 @@ const client = new MongoClient(url);
 
 const app = express();
 
-app.set("view engine " ,"ejs");
+app.set("view engine", "ejs");
 app.get('/',async (req,resp)=>{
      await client.connect();
     const db = client.db(dbName);
@@ -17,9 +17,9 @@ app.get('/',async (req,resp)=>{
 
     const result = await collection.find().toArray();
     console.log(result);
-    resp.render("first");
+    resp.render("first",{students:result});
 })
-app.listen(2020,(req,resp)=>{
+app.listen(2020,()=>{
     console.log("This run correctly in http://localhost:2020");
 })
 
