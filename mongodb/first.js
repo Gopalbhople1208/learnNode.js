@@ -6,18 +6,20 @@ const dbName="studentData";
 const url = "mongodb://localhost:27017"
 const client = new MongoClient(url);
 
-async function dbConnection() {
-    await client.connect();
+
+const app = express();
+
+app.get('/',async (req,resp)=>{
+     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection('students');
 
     const result = await collection.find().toArray();
     console.log(result);
-}
-
-
-dbConnection()
-const app = express();
-app.listen(2020)
+    resp.send("this is the Data Here");
+})
+app.listen(2020,(req,resp)=>{
+    console.log("This run correctly in http://localhost:2020");
+})
 
 
