@@ -105,6 +105,22 @@ app.get("/ui/delete/:id",async (req,resp)=>{ //delete data by use of ui /delete/
    
         
     })
+//update 
+
+app.post("/ui/update/:id",async(req,resp)=>{
+    console.log(req.body);
+    console.log(req.params.id);
+    const collection = db.collection("students");
+    const filter = {_id:new ObjectId(req.params.id)};
+    const update ={$set:req.body};
+    const result = await collection.updateOne(filter,update);
+
+if(result){
+     resp.send("update successfully",req.params.id);
+}else{
+    resp.send("Do Not update Try again!!");
+}
+})
 app.listen(2020,()=>{
     console.log("This run correctly in http://localhost:2020");
 })
