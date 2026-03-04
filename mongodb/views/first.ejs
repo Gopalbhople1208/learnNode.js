@@ -16,6 +16,7 @@
         <td>Email</td>
         <td>Operation</td>
         <td>Delete</td>
+
     </tr>
 <% students.forEach(student=>{ %>
  <tr>
@@ -24,6 +25,8 @@
         <td><%= student.email%></td>
         <td><%= student._id%></td>
         <td><a href ="/ui/delete/<%= student._id %>">Delete</a></td>
+                <td><a href ="/ui/student/<%= student._id %>">Update</a></td>
+
     </tr>
 <%})%>
      

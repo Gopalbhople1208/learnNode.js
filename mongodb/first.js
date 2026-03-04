@@ -85,6 +85,26 @@ app.get("/ui/delete/:id",async (req,resp)=>{ //delete data by use of ui /delete/
 }
 })
 
+
+
+//update form only show
+  app.get('/ui/student/:id', async (req,resp)=>{
+   
+    const collection = db.collection("students");
+    const result = await collection.findOne({_id:new ObjectId(req.params.id)});
+    resp.render('update',{result});
+   
+        
+    })
+//this show the data api from 
+     app.get('/student/:id', async (req,resp)=>{
+   
+    const collection = db.collection("students");
+    const result = await collection.findOne({_id:new ObjectId(req.params.id)});
+   resp.send({message:"data fetching",result:result,success:true});
+   
+        
+    })
 app.listen(2020,()=>{
     console.log("This run correctly in http://localhost:2020");
 })
