@@ -72,7 +72,7 @@ app.delete("/delete/:id",async (req,resp)=>{ //delete data by use of thunder /de
 }
 })
 //delete with the ui function use delete rec
-app.get("/delete/:id",async (req,resp)=>{ //delete data by use of ui /delete/add the id record delete
+app.get("/ui/delete/:id",async (req,resp)=>{ //delete data by use of ui /delete/add the id record delete
     
     const collection = db.collection("students");
     const result = await collection.deleteOne({_id:new ObjectId(req.params.id)});
