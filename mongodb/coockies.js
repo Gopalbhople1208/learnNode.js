@@ -1,8 +1,12 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
-
+import session from 'session'
 const app = express();
 
+
+app.use(session({
+    secret:"gops",
+}))
 // Settings
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +27,8 @@ app.get('/', (req, res) => {
   console.log('User name from cookie:', userName);
   res.render('home', { name: userName }); // renders views/home.ejs
 });
+
+
 
 // Start server
 app.listen(2030, () => {

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Welcome, <%= user ? user.name : "Guest" %>!</h1>
+  <p>Email: <%= user ? user.email : "-" %></p>
+  <p>Password: <%= user ? user.password : "-" %></p>
+</body>
+</html>
