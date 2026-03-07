@@ -1,11 +1,16 @@
 {
   "dependencies": {
     "colors": "^1.4.0",
+    "cookie-parser": "^1.4.7",
+    "dotevn": "^0.0.1-security",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "mongodb": "^7.1.0",
     "mongoose": "^9.2.4",
-    "nodemon": "^3.1.11"
+    "nodemailer": "^8.0.1",
+    "nodemon": "^3.1.11",
+    "session": "^0.1.0"
   },
   "name": "node-js",
   "version": "1.0.0",
