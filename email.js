@@ -13,14 +13,19 @@
         service:'gmail',
         auth:{
             user:'gbhople63@gmail.com',
-            pass:"hemi fheo tskq hozo",
+            pass:"enter the user app password",
 
         }
     });
 
+
+ //use nodemailer    
    app.set('view engine','ejs');
    app.use(express.urlencoded({extended:true}));
 
+
+//thunder help api send
+ app.use(express.json());
 
     app.get("/",(req,resp)=>{
     resp.render("ehome");
