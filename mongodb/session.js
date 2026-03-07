@@ -13,7 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: 'gops',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+   cookie: {
+    maxAge: 1000 * 60 * 10   // session expires in 10 minutes
+  }
 }));
 
 // Show login form
@@ -33,7 +36,18 @@ app.get("/homes", (req, res) => {
   res.render("homes", { user }); // pass all data to home
 });
 
+app.get("/check",(req,resp)=>{
+  console.log("session data:",req.session);
+  console.log("session Expiry:",req.session.cookie.expires);
+  resp.send("Check console");
+})
+
+
+
 // Start server
 app.listen(1010, () => {
   console.log("Server running at http://localhost:1010");
 });
+
+//how to check a secret key they go to bower page inspect go application then cookies open link and .sid name file is open show the bottom said cookies value 
+//console.log(decodeURIComponent("s%3AGA_qxmPLXfnuOEdu6dZqhJGolDtpJ53H.oxj%2F1hMKZhJz7KqC1GIIS4fNZ8zW0N9QlzmEf3EuQok"));
