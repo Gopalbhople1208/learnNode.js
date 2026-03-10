@@ -1,6 +1,6 @@
 import express from "express";
 import path from "path";
-import { MongoClient } from "mongodb";
+import { MongoClient,ObjectId} from "mongodb";
 
 const app = express();
 const publicPath = path.resolve("public");
@@ -45,6 +45,26 @@ app.post("/add", async (req, resp) => {
     resp.redirect("/add");
   }
 });
+
+
+
+
+app.get("/delete/:id", async (req, resp) => {
+  const collection = db.collection(collectionName);
+
+  const result = await collection.deleteOne({
+    _id: new ObjectId(req.params.id)
+  });
+
+  if (result.deletedCount === 1) {
+    resp.redirect("/home");
+  } else {
+    resp.send("Task not found or already deleted");
+  }
+});
+
+
+
 
 app.post("/update", (req, resp) => {
   resp.redirect("/home");
