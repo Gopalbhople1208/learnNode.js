@@ -64,7 +64,7 @@ app.get("/delete/:id", async (req, resp) => {
 });
 
 
-
+//updata data get 
 app.get("/update/:id", async (req, resp) => {
   const collection = db.collection(collectionName);
 
@@ -84,9 +84,34 @@ app.get("/update/:id", async (req, resp) => {
 
 
 
-app.post("/update", (req, resp) => {
-  resp.redirect("/home");
+
+
+app.post("/update/:id", async (req, resp) => {
+  try {
+    const collection = db.collection(collectionName);
+
+    const filter = { _id: new ObjectId(req.params.id) };
+    const setData = { $set: { title: req.body.title, description: req.body.description } };
+
+    const result = await collection.updateOne(filter, setData);
+
+    if (result.matchedCount > 0) {
+      resp.redirect("/home");
+    } else {
+      resp.send("Task not found");
+    }
+  } catch (error) {
+    console.error(error);
+    resp.status(500).send("Internal Server Error");
+  }
 });
+
+
+
+
+// app.post("/update", (req, resp) => {
+//   resp.redirect("/home");
+// });
 
 app.listen(3030, () => {
   console.log("server running at http://localhost:3030");
