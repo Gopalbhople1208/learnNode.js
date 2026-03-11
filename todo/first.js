@@ -113,6 +113,34 @@ app.post("/update/:id", async (req, resp) => {
 //   resp.redirect("/home");
 // });
 
+
+
+
+//multi-delete
+app.post("/multi-delete", async (req, resp) => {
+ 
+    const collection = db.collection(collectionName);
+
+   console.log(req.body.selectTask )
+
+   const selectTask = req.body.selectTask.map((id)=> new ObjectId(id))
+   
+   
+   const result = await collection.deleteMany({_id:{$in:selectTask}});
+
+   if (result) {
+       resp.redirect("/home");
+     } else {
+       resp.send("Task not found");
+    }
+
+   
+ 
+});
+
+
+
+
 app.listen(3030, () => {
   console.log("server running at http://localhost:3030");
 });
